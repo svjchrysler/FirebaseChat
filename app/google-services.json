@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "936192669687",
+    "firebase_url": "https://react-firebase-9ad62.firebaseio.com",
+    "project_id": "react-firebase-9ad62",
+    "storage_bucket": "react-firebase-9ad62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936192669687:android:8ddc633b4ad02505",
+        "android_client_info": {
+          "package_name": "edu.galileo.andriod.appfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936192669687-rbm586sa5c8nu1j60vbvhrm7dr3m6i7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2XMxYfw7twO7z5BOUzDRiodCfPoi55ec"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
