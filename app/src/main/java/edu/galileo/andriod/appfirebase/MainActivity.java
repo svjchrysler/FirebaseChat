@@ -34,6 +34,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -99,13 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected String doInBackground(String... params) {
-                /*InputStream stream = null;
-                try {
-                    //stream = new FileInputStream(new File("/storage/emulated/0/Download/newsletter-naruto3.png"));
-                    stream = new FileInputStream(new File(Util.uriImage.getPath()));
-                } catch (FileNotFoundException e) {
-                    Log.e("error", e.getMessage());
-                }*/
 
                 img.setDrawingCacheEnabled(true);
                 img.buildDrawingCache();
@@ -115,19 +110,20 @@ public class MainActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] data = baos.toByteArray();
 
-                StorageReference mountainImagesRef = storageRef.child("images/d.jpg");
+                String timeStamp = "image"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime())+".png";
+                Log.e("hora: ",  timeStamp);
+                Log.e("extension: ", Util.uriImage.getPath());
+                StorageReference mountainImagesRef = storageRef.child("images/"+timeStamp);
 
                 UploadTask uploadTask = mountainImagesRef.putBytes(data);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        Log.e("Error", exception.getMessage());
                         progressDialog.dismiss();
                     }
                 }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.e("Correcto", taskSnapshot.getMetadata().toString());
                         progressDialog.dismiss();
                     }
                 });
@@ -136,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
         };
 
         task.execute();
-/*
-        Chat chat = new Chat("erman", txtMessage.getText().toString());
-        myRef.push().setValue(chat);*/
 
+
+        Chat chat = new Chat("erman", txtMessage.getText().toString());
+        myRef.push().setValue(chat);
 
     }
 
