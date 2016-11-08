@@ -3,6 +3,7 @@ package edu.galileo.andriod.appfirebase;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -40,11 +41,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.mlsdev.rximagepicker.RxImagePicker;
 import com.mlsdev.rximagepicker.Sources;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -83,9 +86,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
-
-
         configFirebaseAuth();
         authenticate();
         configFirebase();
@@ -107,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void configFirebaseAuth() {
-       // mAuth = FirebaseAuth.getInstance();
+       //mAuth = FirebaseAuth.getInstance();
+        //Log.e("Estado", mAuth.getCurrentUser().getEmail());
         //Toast.makeText(this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
     }
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void signIn() {
         GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
+                //.enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -145,6 +146,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         Log.e("email",account.getEmail());
+        Log.e("username",account.getDisplayName());
+        Picasso.with(this).load(account.getPhotoUrl()).into(img);
+
     }
 
     @OnClick(R.id.imageView)
@@ -160,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @OnClick(R.id.btnSend)
     public void sendMessage() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+       final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
         progressDialog.show();
 

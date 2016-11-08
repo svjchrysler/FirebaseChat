@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "936192669687-gi34gabtqgree6v8el9tq2sqps0o88ig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.galileo.andriod.appfirebase",
+            "certificate_hash": "5DC292B81AC876124797B1C88DEA6D867F887A40"
+          }
+        },
+        {
           "client_id": "936192669687-rbm586sa5c8nu1j60vbvhrm7dr3m6i7t.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936192669687-rbm586sa5c8nu1j60vbvhrm7dr3m6i7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
