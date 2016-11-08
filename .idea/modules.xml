@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FirebaseChat.iml" filepath="$PROJECT_DIR$/FirebaseChat.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/chatfirebase.iml" filepath="$PROJECT_DIR$/chatfirebase.iml" />
     </modules>
   </component>
 </project>
