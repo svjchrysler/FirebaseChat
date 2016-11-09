@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @BindView(R.id.btnSend)
     Button btnSend;
 
-    int cont = 0;
-
     @BindView(R.id.txtMessage)
     EditText txtMessage;
 
@@ -72,8 +70,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @BindView(R.id.imageView)
     ImageView img;
-
-    Uri imagenGaleria;
 
     DatabaseReference myRef;
     StorageReference storageRef;
@@ -114,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void authenticate() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.client_id))
+                //.requestIdToken(getString(R.string.client_id))
                 .requestEmail()
                 .requestProfile()
                 .build();
@@ -122,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void signIn() {
         GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
-                //.enableAutoManage(this, this)
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -145,9 +141,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
-        Log.e("email",account.getEmail());
-        Log.e("username",account.getDisplayName());
+        this.setTitle(account.getDisplayName());
         Picasso.with(this).load(account.getPhotoUrl()).into(img);
+
 
     }
 
@@ -164,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @OnClick(R.id.btnSend)
     public void sendMessage() {
-       final ProgressDialog progressDialog = new ProgressDialog(this);
+      /* final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
         progressDialog.show();
 
@@ -200,10 +196,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         };
 
-        task.execute();
+        task.execute();*/
 
 
-        Chat chat = new Chat("erman", txtMessage.getText().toString());
+        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString());
         myRef.push().setValue(chat);
 
     }
@@ -214,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 Chat chaT = dataSnapshot.getValue(Chat.class);
-                txtView.setText(txtView.getText().toString() + chaT.getMessage() + " \n");
+                txtView.setText(txtView.getText().toString() + chaT.getUsername() + ": " + chaT.getMessage() + " \n");
             }
 
             @Override

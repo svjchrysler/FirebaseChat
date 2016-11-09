@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="username"
+        android:hint="mensaje"
         android:ems="10"
         android:id="@+id/txtMessage"
         android:layout_below="@+id/sign_in_button"
