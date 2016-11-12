@@ -3,11 +3,9 @@ package edu.galileo.andriod.appfirebase;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,14 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -35,8 +30,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.mlsdev.rximagepicker.RxImagePicker;
@@ -47,7 +42,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -160,7 +154,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @OnClick(R.id.btnSend)
     public void sendMessage() {
-      /* final ProgressDialog progressDialog = new ProgressDialog(this);
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
         progressDialog.show();
 
@@ -179,6 +174,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 String timeStamp = "image"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime())+".png";
                 StorageReference mountainImagesRef = storageRef.child("images/"+timeStamp);
+                /*InputStream stream = null;
+                try {
+                    stream = new FileInputStream(new File(Util.uriImage.getPath()));
+                } catch (FileNotFoundException e) {
+                    Log.e("Error Path", e.getMessage());
+                }*/
+
+                StorageMetadata metadata = new StorageMetadata.Builder()
+                        .setContentType("image/png")
+                        .build();
+
+
 
                 UploadTask uploadTask = mountainImagesRef.putBytes(data);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -196,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         };
 
-        task.execute();*/
+        task.execute();
 
 
         Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString());
