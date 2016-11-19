@@ -1,20 +1,11 @@
 package edu.galileo.andriod.appfirebase;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -23,21 +14,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.mlsdev.rximagepicker.RxImagePicker;
-import com.mlsdev.rximagepicker.Sources;
-import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
@@ -51,21 +32,23 @@ import rx.functions.Action1;
 
 
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends AppCompatActivity{
 
-    /*@BindView(R.id.btnSend)
+    @BindView(R.id.btnSend)
     Button btnSend;
 
     @BindView(R.id.txtMessage)
     EditText txtMessage;
 
+    @BindView(R.id.recyclerMessage)
+    RecyclerView recyclerMessage;
 
 
     DatabaseReference myRef;
-    StorageReference storageRef;
+    /*StorageReference storageRef;
     GoogleSignInOptions gso;
-    private FirebaseAuth mAuth;
-*/
+    private FirebaseAuth mAuth;*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         //configFirebaseAuth();
         //authenticate();
-        //configFirebase();
+        configFirebase();
         //getMessage();
         //img.setImageResource(R.drawable.naruto);
 
@@ -86,12 +69,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
 
-  /*  private void configFirebase() {
+    private void configFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        //FirebaseStorage storage = FirebaseStorage.getInstance();
         myRef =  database.getReference();
-        storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
-    }*/
+        //storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
+    }
 /*
     private void configFirebaseAuth() {
        //mAuth = FirebaseAuth.getInstance();
@@ -153,10 +136,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @OnClick(R.id.btnSend)
     public void sendMessage() {
 
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+        /*final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
         progressDialog.show();
-/*
+*/
+        /*
          AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
 
             @Override
@@ -202,10 +186,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         };
 
         task.execute();
-
-        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString());
-        myRef.push().setValue(chat);
 */
+        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString(), "imagen");
+        myRef.push().setValue(chat);
+
     }
 /*
     private void getMessage() {
@@ -259,8 +243,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         }
     }
 */
-    @Override
+    /*@Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-    }
+    }*/
 }
