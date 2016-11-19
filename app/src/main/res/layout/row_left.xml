@@ -21,30 +21,31 @@
             android:id="@+id/layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
 
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="0.1"
+                android:src="@drawable/user_pratikshya" />
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.9"
                 android:background="@drawable/rounded_corner1"
                 android:padding="16dp"
-                android:textStyle="bold"
-                android:text="Android charting application xml ui design tutorial with example. Android charting application xml ui design tutorial"
-                android:textColor="@color/colorIcons" />
+                android:text="Android charting application xml ui design. Android charting application xml ui design tutorial with example. Android charting application xml ui design. Android charting application xml ui design. "
+                android:textColor="#000" />
 
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="12dp"
-                android:layout_weight="0.1"
-                android:src="@drawable/user_pacific" />
+
 
         </LinearLayout>
-  </RelativeLayout>
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
