@@ -8,4 +8,5 @@ import android.net.Uri;
 
 public class Util {
     public static Uri uriImage;
+    public int estado;
 }
