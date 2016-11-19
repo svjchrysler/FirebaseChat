@@ -30,7 +30,7 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:background="@mipmap/ic_launcher"
+                android:background="@drawable/chat_logo"
                 android:layout_centerInParent="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -60,16 +60,42 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_button_login"
                     android:theme="@style/RaisedButtonDark"
-
+                    android:drawableLeft="@mipmap/ic_google"
+                    android:drawablePadding="-9dp"
 
                     />
-               
 
 
 
 
 
 
+
+
+                <RelativeLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/dontHeveAcount"
+                        android:text="@string/dont_have_account"
+                        android:textColor="@color/colorDivider"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textsize_donthaveaccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/Createaccount"
+                        android:text="@string/create_here"
+                        android:textColor="@color/colorDivider"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textsize_donthaveaccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/dontHeveAcount"
+
+                        />
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:gravity="center"
