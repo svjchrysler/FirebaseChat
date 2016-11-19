@@ -1,21 +1,28 @@
 package edu.galileo.andriod.appfirebase;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -46,6 +53,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.galileo.andriod.appfirebase.adapters.MessageRecyclerAdapter;
 import edu.galileo.andriod.appfirebase.models.Chat;
 import rx.functions.Action1;
 
@@ -53,16 +61,19 @@ import rx.functions.Action1;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    /*@BindView(R.id.btnSend)
-    Button btnSend;
+    @BindView(R.id.btnSend)
+    FloatingActionButton btnSend;
 
     @BindView(R.id.txtMessage)
     EditText txtMessage;
 
+    @BindView(R.id.recycler_view_items)
+    RecyclerView recyclerView;
 
 
     DatabaseReference myRef;
-    StorageReference storageRef;
+    private FirebaseRecyclerAdapter adapter;
+    /*StorageReference storageRef;
     GoogleSignInOptions gso;
     private FirebaseAuth mAuth;
 */
@@ -70,11 +81,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       /* ButterKnife.bind(this);*/
+        ButterKnife.bind(this);
 
         //configFirebaseAuth();
         //authenticate();
-        //configFirebase();
+        configFirebase();
         //getMessage();
         //img.setImageResource(R.drawable.naruto);
 
@@ -86,12 +97,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
 
-  /*  private void configFirebase() {
+    private void configFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        //FirebaseStorage storage = FirebaseStorage.getInstance();
         myRef =  database.getReference();
-        storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
-    }*/
+        adapter = new MessageRecyclerAdapter(R.layout.row, myRef);
+        configRecycler();
+        //storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
+    }
+
+    private void configRecycler() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
 /*
     private void configFirebaseAuth() {
        //mAuth = FirebaseAuth.getInstance();
@@ -153,9 +171,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @OnClick(R.id.btnSend)
     public void sendMessage() {
 
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+        /*final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
-        progressDialog.show();
+        progressDialog.show();*/
 /*
          AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
 
@@ -202,10 +220,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         };
 
         task.execute();
-
-        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString());
-        myRef.push().setValue(chat);
 */
+
+        InputMethodManager inputMethodManager = (InputMethodManager)  getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
+        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString(), "");
+        myRef.push().setValue(chat);
     }
 /*
     private void getMessage() {

@@ -1,6 +1,7 @@
 package edu.galileo.andriod.appfirebase.adapters;
 
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,56 +33,34 @@ public class MessageRecyclerAdapter extends FirebaseRecyclerAdapter<Chat,
 
     @Override
     public ToDoItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(mModelLayout, parent, false);
+        ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
         return new ToDoItemViewHolder(view);
     }
 
 
     @Override
     protected void populateViewHolder(ToDoItemViewHolder holder, Chat item, int position) {
-        //String itemDescription = item.getItem();
+
         String username = item.getUsername();
+        String photo = item.getPhoto();
+        String message = item.getMessage();
 
-        //holder.txtItem.setText(itemDescription);
         holder.txtUser.setText(username);
+        //holder.imgAvatar.setImageURI(Uri.parse(photo));
+        holder.txtMessage.setText(message);
 
-        /*if (item.isCompleted()) {
-            holder.imgDone.setVisibility(View.VISIBLE);
-        } else {
-            holder.imgDone.setVisibility(View.INVISIBLE);
-        }*/
     }
 
     class ToDoItemViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener,
-            View.OnLongClickListener {
+             {
 
-        @BindView(R.id.txtItem) TextView txtItem;
+        @BindView(R.id.txtMessage) TextView txtMessage;
+        @BindView(R.id.imgAvatar) ImageView imgAvatar;
         @BindView(R.id.txtUser) TextView txtUser;
 
         public ToDoItemViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
             ButterKnife.bind(this, itemView);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            Chat currentItem = (Chat) getItem(position);
-            DatabaseReference reference = getRef(position);
-            //boolean completed = !currentItem.isCompleted();
-
-            /*currentItem.setCompleted(completed);
-            Map<String, Object> updates = new HashMap<String, Object>();
-            updates.put("completed", completed);
-            reference.updateChildren(updates);*/
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            return false;
         }
     }
 }
