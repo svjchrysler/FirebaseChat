@@ -3,6 +3,7 @@ package edu.galileo.andriod.appfirebase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -28,21 +29,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.galileo.andriod.appfirebase.models.Chat;
-import rx.functions.Action1;
-
-
 
 public class MainActivity extends AppCompatActivity{
 
-    @BindView(R.id.btnSend)
-    Button btnSend;
+    /*@BindView(R.id.btnSend)
+    Button btnSend;*/
 
     @BindView(R.id.txtMessage)
     EditText txtMessage;
 
     @BindView(R.id.recyclerMessage)
     RecyclerView recyclerMessage;
-
 
     DatabaseReference myRef;
     /*StorageReference storageRef;
@@ -53,10 +50,15 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
         //configFirebaseAuth();
         //authenticate();
+        Button btn = (Button)findViewById(R.id.btnSend);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessage();
+            }
+        });
         configFirebase();
         //getMessage();
         //img.setImageResource(R.drawable.naruto);
@@ -115,12 +117,12 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 */
-    private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
+    /*private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         this.setTitle(account.getDisplayName());
         //Picasso.with(this).load(account.getPhotoUrl()).into(img);
 
 
-    }
+    }*/
 
     /*@OnClick(R.id.imageView)
     public void galeria() {
@@ -133,7 +135,6 @@ public class MainActivity extends AppCompatActivity{
         });
     }*/
 
-    @OnClick(R.id.btnSend)
     public void sendMessage() {
 
         /*final ProgressDialog progressDialog = new ProgressDialog(this);

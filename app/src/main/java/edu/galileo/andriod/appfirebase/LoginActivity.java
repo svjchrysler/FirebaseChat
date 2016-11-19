@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
    @OnClick(R.id.Createaccount)
-
     protected void sms(){
        Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
    }
