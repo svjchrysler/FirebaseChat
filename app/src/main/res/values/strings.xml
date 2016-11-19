@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">Firebase Chat</string>
+    <string name="app_name">CHTGramp</string>
+    <string name="title_activity_referencia">ReferenciaActivity</string>
+    <string name="nome_user">Nombre de usuario</string>
+    <string name="hint_pasword">Contraseña</string>
+    <string name="text_button_login">Conectate</string>
+    <string name="dont_have_account">¿No tienes cuenta ,?</string>
+    <string name="create_here">crea una aqui</string>
     <string name="client_id">936192669687-gi34gabtqgree6v8el9tq2sqps0o88ig.apps.googleusercontent.com</string>
 </resources>
