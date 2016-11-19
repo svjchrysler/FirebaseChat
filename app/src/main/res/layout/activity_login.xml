@@ -8,13 +8,7 @@
     tools:context=".LoginActivity"
     android:background="@color/colorPrimary"
     >
-    <!--
-    ****notas****
-    densificar la imagen (difirentes tamaños)
-    plugin drawable ..! para la dencificacion
 
-
-    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
