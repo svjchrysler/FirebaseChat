@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "936192669687",
-    "firebase_url": "https://react-firebase-9ad62.firebaseio.com",
-    "project_id": "react-firebase-9ad62",
-    "storage_bucket": "react-firebase-9ad62.appspot.com"
+    "project_number": "47858913059",
+    "firebase_url": "https://chatgram-be709.firebaseio.com",
+    "project_id": "chatgram-be709",
+    "storage_bucket": "chatgram-be709.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:936192669687:android:8ddc633b4ad02505",
+        "mobilesdk_app_id": "1:47858913059:android:8ddc633b4ad02505",
         "android_client_info": {
           "package_name": "edu.galileo.andriod.appfirebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "936192669687-gi34gabtqgree6v8el9tq2sqps0o88ig.apps.googleusercontent.com",
+          "client_id": "47858913059-7mnlpva664kv7drio2gjcpvotqk10n6t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "edu.galileo.andriod.appfirebase",
-            "certificate_hash": "5DC292B81AC876124797B1C88DEA6D867F887A40"
+            "certificate_hash": "6819A88177F2F8511C09BDE0308712F42354F074"
           }
         },
         {
-          "client_id": "936192669687-rbm586sa5c8nu1j60vbvhrm7dr3m6i7t.apps.googleusercontent.com",
+          "client_id": "47858913059-hbace98tq983j8b988q9kk7mn8l6mulj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC2XMxYfw7twO7z5BOUzDRiodCfPoi55ec"
+          "current_key": "AIzaSyBd9UpUnTbonJhqXS1QD_gIL21KXYxY5rE"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "936192669687-rbm586sa5c8nu1j60vbvhrm7dr3m6i7t.apps.googleusercontent.com",
+              "client_id": "47858913059-hbace98tq983j8b988q9kk7mn8l6mulj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

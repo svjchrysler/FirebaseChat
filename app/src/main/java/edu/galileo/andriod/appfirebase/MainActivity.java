@@ -40,33 +40,24 @@ import com.mlsdev.rximagepicker.Sources;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.galileo.andriod.appfirebase.models.Chat;
 import rx.functions.Action1;
 
 
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    @BindView(R.id.btnSend)
+    /*@BindView(R.id.btnSend)
     Button btnSend;
 
     @BindView(R.id.txtMessage)
     EditText txtMessage;
-
-    @BindView(R.id.txtView)
-    TextView txtView;
-
-    @BindView(R.id.imageView)
-    ImageView img;
 
 
 
@@ -74,40 +65,41 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     StorageReference storageRef;
     GoogleSignInOptions gso;
     private FirebaseAuth mAuth;
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        configFirebaseAuth();
-        authenticate();
-        configFirebase();
-        getMessage();
-        img.setImageResource(R.drawable.naruto);
+        //configFirebaseAuth();
+        //authenticate();
+        //configFirebase();
+        //getMessage();
+        //img.setImageResource(R.drawable.naruto);
 
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setScopes(gso.getScopeArray());
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        //SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        //signInButton.setSize(SignInButton.SIZE_STANDARD);
+        //signInButton.setScopes(gso.getScopeArray());
+        //findViewById(R.id.sign_in_button).setOnClickListener(this);
 
     }
 
 
-    private void configFirebase() {
+  /*  private void configFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseStorage storage = FirebaseStorage.getInstance();
         myRef =  database.getReference();
         storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
-    }
-
+    }*/
+/*
     private void configFirebaseAuth() {
        //mAuth = FirebaseAuth.getInstance();
         //Log.e("Estado", mAuth.getCurrentUser().getEmail());
         //Toast.makeText(this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
     }
-
+*/
+    /*
     private void authenticate() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 //.requestIdToken(getString(R.string.client_id))
@@ -115,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 .requestProfile()
                 .build();
     }
-
+*//*
     private void signIn() {
         GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
@@ -139,15 +131,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         }
     }
-
+*/
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         this.setTitle(account.getDisplayName());
-        Picasso.with(this).load(account.getPhotoUrl()).into(img);
+        //Picasso.with(this).load(account.getPhotoUrl()).into(img);
 
 
     }
 
-    @OnClick(R.id.imageView)
+    /*@OnClick(R.id.imageView)
     public void galeria() {
         RxImagePicker.with(this).requestImage(Sources.GALLERY).subscribe(new Action1<Uri>() {
             @Override
@@ -156,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 img.setImageURI(uri);
             }
         });
-    }
+    }*/
 
     @OnClick(R.id.btnSend)
     public void sendMessage() {
@@ -164,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Subiendo");
         progressDialog.show();
-
+/*
          AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
 
             @Override
@@ -180,12 +172,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 String timeStamp = "image"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime())+".png";
                 StorageReference mountainImagesRef = storageRef.child("images/"+timeStamp);
-                /*InputStream stream = null;
+                InputStream stream = null;
                 try {
                     stream = new FileInputStream(new File(Util.uriImage.getPath()));
                 } catch (FileNotFoundException e) {
                     Log.e("Error Path", e.getMessage());
-                }*/
+                }
 
                 StorageMetadata metadata = new StorageMetadata.Builder()
                         .setContentType("image/png")
@@ -211,19 +203,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         task.execute();
 
-
         Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString());
         myRef.push().setValue(chat);
-
+*/
     }
-
+/*
     private void getMessage() {
         ChildEventListener childEnventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 Chat chaT = dataSnapshot.getValue(Chat.class);
-                txtView.setText(txtView.getText().toString() + chaT.getUsername() + ": " + chaT.getMessage() + " \n");
+                //txtView.setText(txtView.getText().toString() + chaT.getUsername() + ": " + chaT.getMessage() + " \n");
             }
 
             @Override
@@ -254,7 +245,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-
+*/
+    /*
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -265,5 +257,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+*/
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

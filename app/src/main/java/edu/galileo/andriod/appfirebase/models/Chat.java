@@ -1,4 +1,4 @@
-package edu.galileo.andriod.appfirebase;
+package edu.galileo.andriod.appfirebase.models;
 
 /**
  * Created by Usuario on 29/10/2016.
@@ -20,7 +20,7 @@ public class Chat {
     public Chat() {
     }
 
-    Chat(String username, String message) {
+    public Chat(String username, String message) {
         this.username = username;
         this.message = message;
     }
