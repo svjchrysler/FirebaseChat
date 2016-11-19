@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -51,6 +52,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.functions.Action1;
 
+
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
     @BindView(R.id.btnSend)
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @BindView(R.id.imageView)
     ImageView img;
+
+
 
     DatabaseReference myRef;
     StorageReference storageRef;
@@ -88,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
     }
+
 
     private void configFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -254,6 +260,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
+                break;
+            case R.id.Createaccount:
+                Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
