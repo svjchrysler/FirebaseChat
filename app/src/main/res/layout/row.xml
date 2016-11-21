@@ -15,6 +15,7 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:layout_weight="1"
         >
 
@@ -25,6 +26,7 @@
             android:background="@drawable/rounded_corner1"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+
             android:padding="10dp">
 
             <TextView
@@ -34,6 +36,7 @@
                 android:textColor="@color/colorDivider"
                 android:textStyle="bold"
                 android:textSize="12sp"
+            
                 android:id="@+id/txtUser" />
 
             <TextView
@@ -57,5 +60,55 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgAvatar2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.05"
+            android:src="@drawable/user_pratikshya"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.95"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="usser"
+                android:textColor="@color/colorDivider"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:id="@+id/txtUser2" />
+
+            <TextView
+                android:id="@+id/txtMessage2"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:text="Android charting application xml ui design tutorial with example. Android charting application xml ui design tutorial"
+                android:textColor="@color/colorIcons" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
