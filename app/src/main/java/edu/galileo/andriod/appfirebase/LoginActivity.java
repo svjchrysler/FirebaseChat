@@ -1,7 +1,7 @@
 package edu.galileo.andriod.appfirebase;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +13,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.Createaccount)
     TextView Create;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +21,9 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-   @OnClick(R.id.Createaccount)
+    @OnClick(R.id.Createaccount)
 
-    protected void sms(){
-       Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
-   }
+    protected void sms() {
+        Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
+    }
 }

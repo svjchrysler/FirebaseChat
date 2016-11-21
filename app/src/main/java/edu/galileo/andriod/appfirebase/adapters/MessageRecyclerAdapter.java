@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.api.model.StringList;
 import com.google.firebase.database.DatabaseReference;
 import com.squareup.picasso.Picasso;
 

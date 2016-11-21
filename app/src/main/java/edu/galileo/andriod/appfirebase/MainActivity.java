@@ -1,64 +1,27 @@
 package edu.galileo.andriod.appfirebase;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageMetadata;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.mlsdev.rximagepicker.RxImagePicker;
-import com.mlsdev.rximagepicker.Sources;
-import com.squareup.picasso.Picasso;
-
-import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.galileo.andriod.appfirebase.adapters.MessageRecyclerAdapter;
 import edu.galileo.andriod.appfirebase.models.Chat;
-import io.github.rockerhieu.emojicon.emoji.Emojicon;
-import rx.functions.Action1;
-
 
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -75,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     DatabaseReference myRef;
     private FirebaseRecyclerAdapter adapter;
+
     /*StorageReference storageRef;
     GoogleSignInOptions gso;
     private FirebaseAuth mAuth;
@@ -102,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void configFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         //FirebaseStorage storage = FirebaseStorage.getInstance();
-        myRef =  database.getReference();
+        myRef = database.getReference();
         adapter = new MessageRecyclerAdapter(R.layout.row, myRef, this);
         configRecycler();
         //storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
@@ -114,13 +78,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
-/*
-    private void configFirebaseAuth() {
-       //mAuth = FirebaseAuth.getInstance();
-        //Log.e("Estado", mAuth.getCurrentUser().getEmail());
-        //Toast.makeText(this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-    }
-*/
+
+    /*
+        private void configFirebaseAuth() {
+           //mAuth = FirebaseAuth.getInstance();
+            //Log.e("Estado", mAuth.getCurrentUser().getEmail());
+            //Toast.makeText(this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+        }
+    */
     /*
     private void authenticate() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -237,47 +202,48 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 
     private void ultimateElement() {
-        recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount()-1);
-    }
-/*
-    private void getMessage() {
-        ChildEventListener childEnventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                Chat chaT = dataSnapshot.getValue(Chat.class);
-                //txtView.setText(txtView.getText().toString() + chaT.getUsername() + ": " + chaT.getMessage() + " \n");
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        myRef.addChildEventListener(childEnventListener);
+        recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    /*
+        private void getMessage() {
+            ChildEventListener childEnventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-    }
-*/
+                    Chat chaT = dataSnapshot.getValue(Chat.class);
+                    //txtView.setText(txtView.getText().toString() + chaT.getUsername() + ": " + chaT.getMessage() + " \n");
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            myRef.addChildEventListener(childEnventListener);
+        }
+
+        @Override
+        public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+        }
+    */
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

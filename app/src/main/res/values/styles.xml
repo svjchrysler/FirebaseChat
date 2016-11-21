@@ -25,6 +25,7 @@
         <item name="colorControlHighlight">@color/colorPrimary</item>
 
     </style>
+
     <style name="EditTextWhite" parent="Theme.AppCompat">
         <item name="android:textColorHint">@color/colorIcons</item>
         <item name="android:textSize">@dimen/edittext_textsize_login</item>

@@ -6,8 +6,7 @@
     android:fitsSystemWindows="true"
     tools:context=".LoginActivity"
     android:background="@color/colorPrimary"
-    android:id="@+id/coordinatorFather"
-    >
+    android:id="@+id/coordinatorFather">
     <!--
     ****notas****
     densificar la imagen (difirentes tamaños)
@@ -19,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="1"
-        >
+        android:weightSum="1">
 
         <RelativeLayout
 
@@ -41,17 +39,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
-            android:fillViewport="true"
-            >
+            android:fillViewport="true">
 
             <LinearLayout
 
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/paddig_horizontal_login"
-                >
-
+                android:padding="@dimen/paddig_horizontal_login">
 
 
                 <Button
@@ -62,13 +57,13 @@
                     android:text="@string/text_button_login"
                     android:theme="@style/RaisedButtonDark"
                     android:drawableLeft="@mipmap/ic_google"
-                    android:drawablePadding="-9dp"
-                    />
+                    android:drawablePadding="-9dp" />
 
                 <RelativeLayout
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/dontHeveAcountOne"
                         android:text="@string/dont_have_account"
@@ -77,6 +72,7 @@
                         android:textSize="@dimen/textsize_donthaveaccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+
                     <TextView
                         android:id="@+id/CreateaccountOne"
                         android:text="@string/create_here"
@@ -94,6 +90,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/dontHeveAcount"
                         android:text="@string/dont_have_account"
@@ -102,6 +99,7 @@
                         android:textSize="@dimen/textsize_donthaveaccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+
                     <TextView
                         android:id="@+id/Createaccount"
                         android:text="@string/create_here"
