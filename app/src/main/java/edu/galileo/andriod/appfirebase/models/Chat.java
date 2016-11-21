@@ -1,13 +1,18 @@
 package edu.galileo.andriod.appfirebase.models;
 
-/**
- * Created by Usuario on 29/10/2016.
- */
-
 public class Chat {
     private String username;
     private String message;
     private String photo;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -37,10 +42,11 @@ public class Chat {
     public Chat() {
     }
 
-    public Chat(String username, String message, String photo) {
+    public Chat(String username, String message, String photo, String token) {
         this.username = username;
         this.message = message;
         this.photo = photo;
+        this.token = token;
     }
 
 

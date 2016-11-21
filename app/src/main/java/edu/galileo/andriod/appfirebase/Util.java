@@ -7,5 +7,5 @@ import android.net.Uri;
  */
 
 public class Util {
-    public static Uri uriImage;
+    public static String TOKEN_USER;
 }

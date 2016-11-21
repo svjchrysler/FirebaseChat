@@ -48,10 +48,18 @@ public class MessageActivity extends AppCompatActivity implements GoogleApiClien
     }
 
     private void configInit() {
-        configFirebaseAuth();
+        SharedPreferences sharedPreferences = getApplication().getSharedPreferences("UserProfile", 0);
+        String username = sharedPreferences.getString("username", null);
+        String photo = sharedPreferences.getString("photo", null);
+        String token = sharedPreferences.getString("token", null);
+        if (username != null && photo != null && token != null) {
+            Util.TOKEN_USER = token;
+            startActivity(new Intent(MessageActivity.this, MainActivity.class));
+            finish();
+        } else {
+            configFirebaseAuth();
+        }
     }
-
-
 
     private void configFirebaseAuth() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -96,9 +104,11 @@ public class MessageActivity extends AppCompatActivity implements GoogleApiClien
         SharedPreferences sharedPreferences = getApplication().getSharedPreferences("UserProfile", 0);
         String username = sharedPreferences.getString("username", null);
         String photo = sharedPreferences.getString("photo", null);
-        if (username == null || photo == null) {
+        String token = sharedPreferences.getString("token", null);
+        if (username == null || photo == null || token == null) {
             sharedPreferences.edit().putString("username", account.getDisplayName()).commit();
             sharedPreferences.edit().putString("photo", account.getPhotoUrl().toString()).commit();
+            sharedPreferences.edit().putString("token", account.getId()).commit();
         }
         redirectActivity();
     }

@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "47858913059-7mnlpva664kv7drio2gjcpvotqk10n6t.apps.googleusercontent.com",
+          "client_id": "47858913059-3m7mq8tliitetcn5te53bh82ravb20c3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "edu.galileo.andriod.appfirebase",
-            "certificate_hash": "6819A88177F2F8511C09BDE0308712F42354F074"
+            "certificate_hash": "5DC292B81AC876124797B1C88DEA6D867F887A40"
           }
         },
         {

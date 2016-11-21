@@ -229,7 +229,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         SharedPreferences sharedPreferences = getApplication().getSharedPreferences("UserProfile", 0);
         String username = sharedPreferences.getString("username", null);
         String photo = sharedPreferences.getString("photo", null);
-        Chat chat = new Chat(username, txtMessage.getText().toString(), photo);
+        String token = sharedPreferences.getString("token", null);
+        Chat chat = new Chat(username, txtMessage.getText().toString(), photo, token);
         myRef.push().setValue(chat);
         ultimateElement();
     }

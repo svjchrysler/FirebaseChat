@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".LoginActivity"
     android:orientation="vertical"
-    android:layout_margin="4dp"
-    >
+    android:layout_margin="4dp">
 
 
     <LinearLayout
-        android:id="@+id/layout1"
+        android:id="@+id/linearOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -63,7 +61,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout2"
+        android:id="@+id/linearTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="40dp"
@@ -77,6 +75,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="0.05"
             android:src="@drawable/user_pratikshya"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="0.95"
