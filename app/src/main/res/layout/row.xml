@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".LoginActivity"
-    android:background="@color/colorFontmessage"
     android:orientation="vertical"
     android:layout_margin="4dp"
     >
@@ -17,30 +16,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-
         >
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.9"
+            android:layout_weight="0.95"
             android:orientation="vertical"
             android:background="@drawable/rounded_corner1"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:padding="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="usser"
                 android:textColor="@color/colorDivider"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:id="@+id/txtUser"
-                />
+                android:textSize="12sp"
+                android:id="@+id/txtUser" />
 
             <TextView
                 android:id="@+id/txtMessage"
                 android:layout_width="match_parent"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:text="Android charting application xml ui design tutorial with example. Android charting application xml ui design tutorial"
                 android:textColor="@color/colorIcons" />
@@ -48,13 +47,15 @@
 
         </LinearLayout>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgAvatar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            android:layout_weight="0.1"
-            android:src="@drawable/user_pacific" />
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.05"
+            android:src="@drawable/user_pacific"/>
+
 
     </LinearLayout>
+
 </LinearLayout>

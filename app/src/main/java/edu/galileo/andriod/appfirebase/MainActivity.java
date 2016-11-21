@@ -3,6 +3,7 @@ package edu.galileo.andriod.appfirebase;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -55,6 +56,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.galileo.andriod.appfirebase.adapters.MessageRecyclerAdapter;
 import edu.galileo.andriod.appfirebase.models.Chat;
+import io.github.rockerhieu.emojicon.emoji.Emojicon;
 import rx.functions.Action1;
 
 
@@ -101,13 +103,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         //FirebaseStorage storage = FirebaseStorage.getInstance();
         myRef =  database.getReference();
-        adapter = new MessageRecyclerAdapter(R.layout.row, myRef);
+        adapter = new MessageRecyclerAdapter(R.layout.row, myRef, this);
         configRecycler();
         //storageRef = storage.getReferenceFromUrl("gs://react-firebase-9ad62.appspot.com");
     }
 
     private void configRecycler() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(false);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
 /*
@@ -222,11 +226,17 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         task.execute();
 */
 
-        InputMethodManager inputMethodManager = (InputMethodManager)  getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
-        Chat chat = new Chat(this.getTitle().toString(), txtMessage.getText().toString(), "");
+        SharedPreferences sharedPreferences = getApplication().getSharedPreferences("UserProfile", 0);
+        String username = sharedPreferences.getString("username", null);
+        String photo = sharedPreferences.getString("photo", null);
+        Chat chat = new Chat(username, txtMessage.getText().toString(), photo);
         myRef.push().setValue(chat);
+        ultimateElement();
+    }
+
+
+    private void ultimateElement() {
+        recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount()-1);
     }
 /*
     private void getMessage() {
@@ -267,21 +277,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     }
 */
-    /*
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signIn();
-                break;
-            case R.id.Createaccount:
-                Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
-*/
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    @OnClick(R.id.txtMessage)
+    protected void clickMessage() {
+        ultimateElement();
+        Toast.makeText(this, "cllick", Toast.LENGTH_SHORT).show();
     }
 }
