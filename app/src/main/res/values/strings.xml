@@ -4,7 +4,6 @@
     <string name="nome_user">Nombre de usuario</string>
     <string name="hint_pasword">Contraseña</string>
     <string name="text_button_login">Conectate</string>
-    <string name="dont_have_account">¿Aseptas los terminos </string>
+    <string name="dont_have_account">¿Aceptas los terminos </string>
     <string name="create_here">y condiciones ?</string>
-    <string name="client_id">133368793964-6ibq1nns18mns50p4dhv04t80umml3j7.apps.googleusercontent.com</string>
 </resources>

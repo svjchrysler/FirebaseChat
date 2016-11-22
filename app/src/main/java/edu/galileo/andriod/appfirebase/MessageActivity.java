@@ -60,7 +60,7 @@ public class MessageActivity extends AppCompatActivity implements GoogleApiClien
     private void configFirebaseAuth() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
+                //.requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
                 .requestProfile()
                 .build();
     }
@@ -111,7 +111,6 @@ public class MessageActivity extends AppCompatActivity implements GoogleApiClien
 
     private void redirectActivity() {
         startActivity(new Intent(MessageActivity.this, MainActivity.class));
-        finish();
     }
 
 
