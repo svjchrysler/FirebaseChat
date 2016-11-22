@@ -198,8 +198,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Chat chat = new Chat(username, txtMessage.getText().toString(), photo, token);
         myRef.push().setValue(chat);
         ultimateElement();
+        cleanText();
     }
 
+    private void cleanText() {
+        txtMessage.setText("");
+    }
 
     private void ultimateElement() {
         recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);

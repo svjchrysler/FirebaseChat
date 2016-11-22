@@ -4,35 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".LoginActivity"
-    android:orientation="vertical"
-    android:layout_margin="4dp">
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:id="@+id/linearOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_weight="1">
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="50dp">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="0.95"
+            android:layout_width="match_parent"
             android:orientation="vertical"
             android:background="@drawable/rounded_corner1"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
-            android:padding="10dp">
+            android:paddingTop="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="usser"
-                android:textColor="@color/colorDivider"
+                android:text="Jhon Salguero"
+                android:textColor="#BF360C"
                 android:textStyle="bold"
                 android:gravity="right"
-                android:textSize="12sp"
+                android:textSize="13sp"
 
                 android:id="@+id/txtUser" />
 
@@ -42,19 +42,8 @@
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:text="Android charting application xml ui design tutorial with example. Android charting application xml ui design tutorial"
-                android:textColor="@color/colorIcons" />
-
-
+                android:textColor="#000" />
         </LinearLayout>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.05"
-            android:src="@drawable/user_pacific" />
-
 
     </LinearLayout>
 
@@ -62,34 +51,28 @@
         android:id="@+id/linearTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgAvatar2"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.05"
-            android:src="@drawable/user_pratikshya" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="50dp">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="0.95"
+            android:layout_width="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/rounded_corner1"
+            android:background="@drawable/rounded_corner"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="10dp">
+            android:paddingTop="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="usser"
-                android:textColor="@color/colorDivider"
+                android:text="Luis Mercado"
+                android:gravity="left"
+                android:textColor="#607D8B"
                 android:textStyle="bold"
                 android:textSize="12sp"
-                android:gravity=""
                 android:id="@+id/txtUser2" />
 
             <TextView
@@ -98,8 +81,7 @@
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:text="Android charting application xml ui design tutorial with example. Android charting application xml ui design tutorial"
-                android:textColor="@color/colorIcons" />
-
+                android:textColor="#000" />
 
         </LinearLayout>
 

@@ -42,21 +42,16 @@ public class MessageRecyclerAdapter extends FirebaseRecyclerAdapter<Chat,
     protected void populateViewHolder(ToDoItemViewHolder holder, Chat item, int position) {
 
         String username = item.getUsername();
-        String photo = item.getPhoto();
         String message = item.getMessage();
         String token = item.getToken();
 
         if (token.equals(Util.TOKEN_USER)) {
             holder.txtUser.setText(username);
-            Picasso.with(this.context).load(Uri.parse(photo)).into(holder.imgAvatar);
             holder.txtMessage.setText(message);
-
             holder.linearTwo.setVisibility(View.GONE);
         } else {
             holder.txtUser2.setText(username);
-            Picasso.with(this.context).load(Uri.parse(photo)).into(holder.imgAvatar2);
             holder.txtMessage2.setText(message);
-
             holder.linearOne.setVisibility(View.GONE);
         }
     }
@@ -66,13 +61,9 @@ public class MessageRecyclerAdapter extends FirebaseRecyclerAdapter<Chat,
 
         @BindView(R.id.txtMessage)
         TextView txtMessage;
-        @BindView(R.id.imgAvatar)
-        CircleImageView imgAvatar;
         @BindView(R.id.txtUser)
         TextView txtUser;
 
-        @BindView(R.id.imgAvatar2)
-        CircleImageView imgAvatar2;
         @BindView(R.id.txtMessage2)
         TextView txtMessage2;
         @BindView(R.id.txtUser2)
